@@ -121,12 +121,18 @@ h6 {
   --ff-primary: "Arial", Helvetica, sans-serif;
   --ff-secondary: "Times New Roman", Times, serif;
   --fw-normal: 400;
+  --animation-duration: 0.3s;
 }
 
 .--container {
-  max-width: 81.875rem;
+  max-width: 63.125rem;
   margin: 0 auto;
   padding-inline: 1.5625rem;
+}
+
+.--grid-content {
+  display: grid;
+  grid-template-columns: [full-width-start] 1fr [breakout-start] 1.5625rem [content-start] minmax(auto, 60rem) [content-end] 1.5625rem [breakout-end] 1fr [full-width-end];
 }
 
 .--visually-hidden {
@@ -147,6 +153,15 @@ h6 {
   display: none;
 }
 
+.heading-2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.heading-2:not(:last-child) {
+  margin-bottom: 1.25rem;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -159,10 +174,133 @@ select:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0px 1000px #fff inset;
 }
 
+.--accordion {
+  display: grid;
+  gap: 0.625rem;
+}
+
+.--accordion__wrapper {
+  overflow: hidden;
+  border-radius: 0.625rem;
+  background-color: #fff;
+  color: #000;
+}
+
+.--accordion__wrapper[open] .--accordion__expandable-element,
+.--accordion__wrapper[data-open] .--accordion__expandable-element {
+  grid-template-rows: 1fr;
+  padding-block: 0.9375rem;
+}
+
+.--accordion__wrapper[open] .--accordion__expand-button::before,
+.--accordion__wrapper[data-open] .--accordion__expand-button::before {
+  transform: translateY(0.4375rem) rotate(45deg);
+}
+
+.--accordion__wrapper[open] .--accordion__expand-button::after,
+.--accordion__wrapper[data-open] .--accordion__expand-button::after {
+  transform: translateX(0.4375rem) rotate(45deg);
+}
+
+.--accordion__wrapper.--opening .--accordion__expandable-element {
+  animation-name: openAccordion;
+  animation-duration: var(--animation-duration);
+}
+
+.--accordion__wrapper.--opening .--accordion__expand-button::before {
+  transform: translateY(0.4375rem) rotate(45deg);
+}
+
+.--accordion__wrapper.--opening .--accordion__expand-button::after {
+  transform: translateX(0.4375rem) rotate(45deg);
+}
+
+.--accordion__wrapper.--closing .--accordion__expandable-element {
+  animation-name: closeAccordion;
+  animation-duration: var(--animation-duration);
+}
+
+.--accordion__wrapper.--closing .--accordion__expand-button::before {
+  transform: translateY(0.4375rem) rotate(0deg);
+}
+
+.--accordion__wrapper.--closing .--accordion__expand-button::after {
+  transform: translateX(0.4375rem) rotate(0deg);
+}
+
+.--accordion__expand-button {
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.3125rem;
+  list-style: none;
+  padding: 0.9375rem 1.25rem;
+  transition: all var(--animation-duration);
+}
+
+.--accordion__expand-button::before,
+.--accordion__expand-button::after {
+  content: "";
+  grid-column: 1/2;
+  grid-row: 1/2;
+  background-color: #000;
+  transition: transform var(--animation-duration);
+}
+
+.--accordion__expand-button::before {
+  height: 0.125rem;
+  width: 1rem;
+  transform: translateY(0.4375rem);
+}
+
+.--accordion__expand-button::after {
+  width: 0.125rem;
+  height: 1rem;
+  transform: translateX(0.4375rem);
+}
+
+.--accordion__expand-button:focus-visible {
+  background-color: #b8b8b8;
+}
+
+.--accordion__expandable-element {
+  display: grid;
+  grid-template-rows: 0fr;
+  padding-inline: 1.25rem;
+}
+
+.--accordion__expandable-element > div {
+  overflow: hidden;
+}
+
+@keyframes openAccordion {
+  0% {
+    grid-template-rows: 0fr;
+    padding-block: 0;
+  }
+
+  100% {
+    grid-template-rows: 1fr;
+    padding-block: 0.9375rem;
+  }
+}
+
+@keyframes closeAccordion {
+  0% {
+    grid-template-rows: 1fr;
+    padding-block: 0.9375rem;
+  }
+
+  100% {
+    grid-template-rows: 0fr;
+    padding-block: 0;
+  }
+}
+
 html {
-  font-family: var(--ff-main);
+  font-family: var(--ff-primary);
   font-style: normal;
-  font-weight: var(--ff-normal);
+  font-weight: var(--fw-normal);
   color: var(--clr-text-default);
   background-color: var(--clr-bg);
   scroll-behavior: smooth;
@@ -188,4 +326,27 @@ body.--burger-menu-opened {
 
 .wrapper > main {
   flex: 1 1 auto;
+}
+
+.page__title {
+  margin-block: 2.5rem;
+  font-size: 2.25rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.page > section:not(:last-child) {
+  margin-bottom: 2.5rem;
+}
+
+.role-elements-accordion__accordion-header {
+  width: 100%;
+  text-align: left;
+  background-color: transparent;
+}
+
+@media (hover: hover) {
+  .--accordion__expand-button:hover {
+    background-color: #b8b8b8;
+  }
 }
