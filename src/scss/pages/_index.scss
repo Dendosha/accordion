@@ -1,0 +1,77 @@
+.page {
+	// .page__title
+
+	&__title {
+		margin-block: rem(40);
+
+		font-size: rem(36);
+		font-weight: 700;
+		text-align: center;
+	}
+
+	// .page__details-accordion
+
+	&__details-accordion {}
+
+	// .page__role-elements-accordion
+
+	&__role-elements-accordion {}
+
+	&>section {
+		&:not(:last-child) {
+			margin-bottom: rem(40);
+		}
+	}
+}
+
+.details-accordion {
+
+	// .details-accordion__container
+
+	&__container {}
+
+	// .details-accordion__title
+
+	&__title {}
+
+	// .details-accordion__content
+
+	&__content {}
+
+	// .details-accordion__detail
+
+	&__detail {}
+
+	// .details-accordion__summary
+
+	&__summary {
+		cursor: pointer;
+	}
+
+	// .details-accordion__panel
+
+	&__panel {}
+}
+
+.role-elements-accordion {
+
+	// .role-elements-accordion__container
+
+	&__container {}
+
+	// .role-elements-accordion__title
+
+	&__title {}
+
+	// .role-elements-accordion__content
+
+	&__content {}
+
+	// .role-elements-accordion__accordion-header
+
+	&__accordion-header {}
+
+	// .role-elements-accordion__accordion-panel
+
+	&__accordion-panel {}
+}
