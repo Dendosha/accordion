@@ -39,12 +39,3 @@
 		margin-bottom: rem(20);
 	}
 }
-
-.expandable-element {
-	display: grid;
-	grid-template-rows: 0fr;
-
-	&>div {
-		overflow: hidden;
-	}
-}

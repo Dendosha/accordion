@@ -44,9 +44,7 @@
 
 	// .details-accordion__summary
 
-	&__summary {
-		cursor: pointer;
-	}
+	&__summary {}
 
 	// .details-accordion__panel
 
@@ -69,7 +67,12 @@
 
 	// .role-elements-accordion__accordion-header
 
-	&__accordion-header {}
+	&__accordion-header {
+		width: 100%;
+		text-align: left;
+
+		background-color: transparent;
+	}
 
 	// .role-elements-accordion__accordion-panel
 

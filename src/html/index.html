@@ -2,7 +2,7 @@
 <html lang="ru">
 
 @@include('./blocks/head.html', {
-"title": "Accordion",
+"title": "Accordions",
 "pageScript": "js/index.min.js",
 })
 
@@ -14,10 +14,10 @@
 			<section class="page__details-accordion details-accordion">
 				<div class="details-accordion__container --container">
 					<h2 class="details-accordion__title heading-2">Details accordion</h2>
-					<div class="details-accordion__content">
-						<details class="details-accordion__detail">
-							<summary class="details-accordion__summary">Summary 1</summary>
-							<div class="details-accordion__panel expandable-element">
+					<div class="details-accordion__content --accordion">
+						<details data-name="details-accordion" class="details-accordion__detail --accordion__wrapper">
+							<summary class="details-accordion__summary --accordion__expand-button">Summary 1</summary>
+							<div class="details-accordion__panel --accordion__expandable-element">
 								<div>
 									Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur quia blanditiis ipsa eaque
 									cupiditate
@@ -27,9 +27,9 @@
 								</div>
 							</div>
 						</details>
-						<details class="details-accordion__detail">
-							<summary class="details-accordion__summary">Summary 2</summary>
-							<div class="details-accordion__panel expandable-element">
+						<details data-name="details-accordion" class="details-accordion__detail --accordion__wrapper">
+							<summary class="details-accordion__summary --accordion__expand-button">Summary 2</summary>
+							<div class="details-accordion__panel --accordion__expandable-element">
 								<div>
 									Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur quia blanditiis ipsa eaque
 									cupiditate
@@ -39,15 +39,16 @@
 								</div>
 							</div>
 						</details>
-						<details class="details-accordion__detail">
-							<summary class="details-accordion__summary">Summary 3</summary>
-							<div class="details-accordion__panel expandable-element">
+						<details data-name="details-accordion" class="details-accordion__detail --accordion__wrapper">
+							<summary class="details-accordion__summary --accordion__expand-button">Summary 3</summary>
+							<div class="details-accordion__panel --accordion__expandable-element">
 								<div>
 									Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur quia blanditiis ipsa eaque
 									cupiditate
 									harum tenetur, totam repellat praesentium voluptatibus delectus nobis dolorem culpa labore dolores
 									eius
 									et! Quod, a!
+									<a href="#" target="_blank" style="color: blue">Link</a>
 								</div>
 							</div>
 						</details>
@@ -57,49 +58,69 @@
 			<section class="page__role-elements-accordion role-elements-accordion">
 				<div class="role-elements-accordion__container --container">
 					<h2 class="role-elements-accordion__title heading-2">Role elements accordion</h2>
-					<div class="role-elements-accordion__content">
-						<h3>
-							<button id="accordion-header-1" class="role-elements-accordion__accordion-header" type="button"
-								aria-controls="accordion-panel-1" aria-expanded="false">
-								Role accordion title 1
-							</button>
-						</h3>
-						<div id="accordion-panel-1" aria-labelledby="accordion-header-1"
-							class="role-elements-accordion__accordion-panel expandable-element">
-							<div>
-								Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur quia blanditiis ipsa eaque cupiditate
-								harum tenetur, totam repellat praesentium voluptatibus delectus nobis dolorem culpa labore dolores eius
-								et! Quod, a!
+					<div class="role-elements-accordion__content --accordion">
+
+						<div data-accordion data-name="role-accordion" class="--accordion__wrapper">
+							<h3>
+								<button id="role-accordion-header-1"
+									class="role-elements-accordion__accordion-header --accordion__expand-button" type="button"
+									aria-controls="role-accordion-panel-1" aria-expanded="false">
+									Accordion header 1
+								</button>
+							</h3>
+							<div id="role-accordion-panel-1" aria-labelledby="role-accordion-header-1" role="region"
+								class="role-elements-accordion__accordion-panel --accordion__expandable-element">
+								<div>
+									Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur quia blanditiis ipsa eaque
+									cupiditate
+									harum tenetur, totam repellat praesentium voluptatibus delectus nobis dolorem culpa labore dolores
+									eius
+									et! Quod, a!
+									<a href="#" target="_blank" style="color: blue">Link</a>
+								</div>
 							</div>
 						</div>
-						<h3>
-							<button id="accordion-header-2" class="role-elements-accordion__accordion-header" type="button"
-								aria-controls="accordion-panel-2" aria-expanded="false">
-								Role accordion title 2
-							</button>
-						</h3>
-						<div id="accordion-panel-2" aria-labelledby="accordion-header-2"
-							class="role-elements-accordion__accordion-panel expandable-element">
-							<div>
-								Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur quia blanditiis ipsa eaque cupiditate
-								harum tenetur, totam repellat praesentium voluptatibus delectus nobis dolorem culpa labore dolores eius
-								et! Quod, a!
+
+						<div data-accordion data-name="role-accordion" class="--accordion__wrapper">
+							<h3>
+								<button id="role-accordion-header-2"
+									class="role-elements-accordion__accordion-header --accordion__expand-button" type="button"
+									aria-controls="role-accordion-panel-2" aria-expanded="false">
+									Accordion header 2
+								</button>
+							</h3>
+							<div id="role-accordion-panel-2" aria-labelledby="role-accordion-header-2" role="region"
+								class="role-elements-accordion__accordion-panel --accordion__expandable-element">
+								<div>
+									Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur quia blanditiis ipsa eaque
+									cupiditate
+									harum tenetur, totam repellat praesentium voluptatibus delectus nobis dolorem culpa labore dolores
+									eius
+									et! Quod, a!
+								</div>
 							</div>
 						</div>
-						<h3>
-							<button id="accordion-header-3" class="role-elements-accordion__accordion-header" type="button"
-								aria-controls="accordion-panel-3" aria-expanded="false">
-								Role accordion title 3
-							</button>
-						</h3>
-						<div id="accordion-panel-3" aria-labelledby="accordion-header-3"
-							class="role-elements-accordion__accordion-panel expandable-element">
-							<div>
-								Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur quia blanditiis ipsa eaque cupiditate
-								harum tenetur, totam repellat praesentium voluptatibus delectus nobis dolorem culpa labore dolores eius
-								et! Quod, a!
+
+						<div data-accordion data-name="role-accordion" class="--accordion__wrapper">
+							<h3>
+								<button id="role-accordion-header-3"
+									class="role-elements-accordion__accordion-header --accordion__expand-button" type="button"
+									aria-controls="role-accordion-panel-3" aria-expanded="false">
+									Accordion header 3
+								</button>
+							</h3>
+							<div id="role-accordion-panel-3" aria-labelledby="role-accordion-header-3" role="region"
+								class="role-elements-accordion__accordion-panel --accordion__expandable-element">
+								<div>
+									Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur quia blanditiis ipsa eaque
+									cupiditate
+									harum tenetur, totam repellat praesentium voluptatibus delectus nobis dolorem culpa labore dolores
+									eius
+									et! Quod, a!
+								</div>
 							</div>
 						</div>
+
 					</div>
 				</div>
 			</section>
