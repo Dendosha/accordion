@@ -14,12 +14,12 @@
 
 		&[open],
 		&[data-open] {
-			& .--accordion__expandable-element {
+			& .--accordion__panel {
 				grid-template-rows: 1fr;
 				padding-block: rem(15);
 			}
 
-			& .--accordion__expand-button {
+			& .--accordion__header {
 				&::before {
 					transform: translateY(rem(7)) rotate(45deg);
 				}
@@ -31,12 +31,12 @@
 		}
 
 		&.--opening {
-			& .--accordion__expandable-element {
+			& .--accordion__panel {
 				animation-name: openAccordion;
 				animation-duration: var(--animation-duration);
 			}
 
-			& .--accordion__expand-button {
+			& .--accordion__header {
 				&::before {
 					transform: translateY(rem(7)) rotate(45deg);
 				}
@@ -48,12 +48,12 @@
 		}
 
 		&.--closing {
-			& .--accordion__expandable-element {
+			& .--accordion__panel {
 				animation-name: closeAccordion;
 				animation-duration: var(--animation-duration);
 			}
 
-			& .--accordion__expand-button {
+			& .--accordion__header {
 				&::before {
 					transform: translateY(rem(7)) rotate(0deg);
 				}
@@ -65,9 +65,9 @@
 		}
 	}
 
-	// .--accordion__expand-button
+	// .--accordion__header
 
-	&__expand-button {
+	&__header {
 		cursor: pointer;
 
 		display: grid;
@@ -79,6 +79,12 @@
 		padding: rem(15) rem(20);
 
 		transition: all var(--animation-duration);
+
+		&_button {
+			width: 100%;
+			background-color: transparent;
+			text-align: left;
+		}
 
 		&::before,
 		&::after {
@@ -117,9 +123,9 @@
 		}
 	}
 
-	// .--accordion__expandable-element
+	// .--accordion__panel
 
-	&__expandable-element {
+	&__panel {
 		display: grid;
 		grid-template-rows: 0fr;
 		padding-inline: rem(20);
