@@ -186,49 +186,49 @@ select:-webkit-autofill:focus {
   color: #000;
 }
 
-.--accordion__wrapper[open] .--accordion__expandable-element,
-.--accordion__wrapper[data-open] .--accordion__expandable-element {
+.--accordion__wrapper[open] .--accordion__panel,
+.--accordion__wrapper[data-open] .--accordion__panel {
   grid-template-rows: 1fr;
   padding-block: 0.9375rem;
 }
 
-.--accordion__wrapper[open] .--accordion__expand-button::before,
-.--accordion__wrapper[data-open] .--accordion__expand-button::before {
+.--accordion__wrapper[open] .--accordion__header::before,
+.--accordion__wrapper[data-open] .--accordion__header::before {
   transform: translateY(0.4375rem) rotate(45deg);
 }
 
-.--accordion__wrapper[open] .--accordion__expand-button::after,
-.--accordion__wrapper[data-open] .--accordion__expand-button::after {
+.--accordion__wrapper[open] .--accordion__header::after,
+.--accordion__wrapper[data-open] .--accordion__header::after {
   transform: translateX(0.4375rem) rotate(45deg);
 }
 
-.--accordion__wrapper.--opening .--accordion__expandable-element {
+.--accordion__wrapper.--opening .--accordion__panel {
   animation-name: openAccordion;
   animation-duration: var(--animation-duration);
 }
 
-.--accordion__wrapper.--opening .--accordion__expand-button::before {
+.--accordion__wrapper.--opening .--accordion__header::before {
   transform: translateY(0.4375rem) rotate(45deg);
 }
 
-.--accordion__wrapper.--opening .--accordion__expand-button::after {
+.--accordion__wrapper.--opening .--accordion__header::after {
   transform: translateX(0.4375rem) rotate(45deg);
 }
 
-.--accordion__wrapper.--closing .--accordion__expandable-element {
+.--accordion__wrapper.--closing .--accordion__panel {
   animation-name: closeAccordion;
   animation-duration: var(--animation-duration);
 }
 
-.--accordion__wrapper.--closing .--accordion__expand-button::before {
+.--accordion__wrapper.--closing .--accordion__header::before {
   transform: translateY(0.4375rem) rotate(0deg);
 }
 
-.--accordion__wrapper.--closing .--accordion__expand-button::after {
+.--accordion__wrapper.--closing .--accordion__header::after {
   transform: translateX(0.4375rem) rotate(0deg);
 }
 
-.--accordion__expand-button {
+.--accordion__header {
   cursor: pointer;
   display: grid;
   grid-template-columns: auto 1fr;
@@ -238,8 +238,14 @@ select:-webkit-autofill:focus {
   transition: all var(--animation-duration);
 }
 
-.--accordion__expand-button::before,
-.--accordion__expand-button::after {
+.--accordion__header_button {
+  width: 100%;
+  background-color: transparent;
+  text-align: left;
+}
+
+.--accordion__header::before,
+.--accordion__header::after {
   content: "";
   grid-column: 1/2;
   grid-row: 1/2;
@@ -247,29 +253,29 @@ select:-webkit-autofill:focus {
   transition: transform var(--animation-duration);
 }
 
-.--accordion__expand-button::before {
+.--accordion__header::before {
   height: 0.125rem;
   width: 1rem;
   transform: translateY(0.4375rem);
 }
 
-.--accordion__expand-button::after {
+.--accordion__header::after {
   width: 0.125rem;
   height: 1rem;
   transform: translateX(0.4375rem);
 }
 
-.--accordion__expand-button:focus-visible {
+.--accordion__header:focus-visible {
   background-color: #b8b8b8;
 }
 
-.--accordion__expandable-element {
+.--accordion__panel {
   display: grid;
   grid-template-rows: 0fr;
   padding-inline: 1.25rem;
 }
 
-.--accordion__expandable-element > div {
+.--accordion__panel > div {
   overflow: hidden;
 }
 
@@ -346,7 +352,7 @@ body.--burger-menu-opened {
 }
 
 @media (hover: hover) {
-  .--accordion__expand-button:hover {
+  .--accordion__header:hover {
     background-color: #b8b8b8;
   }
 }
